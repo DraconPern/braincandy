@@ -2,7 +2,7 @@
 A silly project combining twitter with google cloud vision.  It uses the vision api to add labels to pictures and photos on the user's timeline.
 
 ## Technology used
-- nodejs, express, webpack, ES2015
+- nodejs, express, webpack, ES2015, react, redux, socketio
 - Google Cloud Vision, Google Cloud Storage
 - Twitter Streaming API
 
