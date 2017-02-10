@@ -100,7 +100,7 @@ stream.on('tweet', function (tweet) {
     var imageurl = tweet.extended_entities.media[0].media_url;
     request(imageurl).pipe(fs.createWriteStream(path.basename(imageurl))).on('close', function() {
       var gcs = require('@google-cloud/storage')({
-        projectId: 'braincandy-158116',
+        projectId: process.env.GOOGLE_PROJECT_ID,
         keyFilename: process.env.GOOGLE_API_KEYFILE
       });
 
@@ -110,8 +110,8 @@ stream.on('tweet', function (tweet) {
         if (!err) {
           // call the vision api
           var vision = require('@google-cloud/vision')({
-            projectId: 'braincandy-158116',
-            keyFilename: 'braincandy-0ecacdd442a0.json'
+            projectId: process.env.GOOGLE_PROJECT_ID,
+            keyFilename: process.env.GOOGLE_API_KEYFILE
           });
 
           var annotateImageReq = {
