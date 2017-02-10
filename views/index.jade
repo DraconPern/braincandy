@@ -1,0 +1,19 @@
+extends layout
+block title
+  | List
+block content
+  if(messages.success)
+    div.row
+      div.col-md-12
+        p.bg-success
+          = messages.success
+  script.
+    window.__INITIAL_STATE__ = { tweetlist: !{JSON.stringify(tweets)} };
+  div#mount
+  if(messages.error)
+    div.row
+      div.col-md-12
+        p.bg-danger
+          = messages.error
+block scripts
+  script(src='/bundle.js')
